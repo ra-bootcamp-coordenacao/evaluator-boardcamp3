@@ -1,0 +1,42 @@
+{
+  "name": "evaluate-boardcamp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "prepare": "husky install",
+    "db:create-tables": "",
+    "cypress:open": "cypress open",
+    "merge": "mochawesome-merge cypress/reports/*.json > output.json",
+    "pretest": "rm -rf cypres/reports && npm run db:create-tables",
+    "test": "cypress run --browser chrome",
+    "report": "npm run test ; npm run merge"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cypress": "^10.8.0",
+    "cypress-cucumber-preprocessor": "^4.3.1",
+    "cypress-multi-reporters": "^1.6.1",
+    "cypress-wait-until": "^1.7.2",
+    "cypress-xpath": "^2.0.1",
+    "dayjs": "^1.10.7",
+    "dotenv": "^10.0.0",
+    "mocha": "^10.0.0",
+    "mochawesome": "^7.1.3",
+    "mochawesome-merge": "^4.2.1",
+    "mochawesome-report-generator": "^6.2.0",
+    "pg": "^8.8.0",
+    "wait-on": "^6.0.1",
+    "xpath2.js": "^1.0.0-alpha-6"
+  },
+  "devDependencies": {
+    "husky": "^8.0.1",
+    "lint-staged": "^13.0.2",
+    "prettier": "2.7.1"
+  },
+  "lint-staged": {
+    "**/*": "prettier --write --ignore-unknown"
+  }
+}

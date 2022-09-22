@@ -1,0 +1,30 @@
+{
+  "modules": [
+    {
+      "name": "node-server"
+    }
+  ],
+  "weights": {
+    "Listar categorias": 1,
+    "Inserir categoria: inserção": 1,
+    "Inserir categoria: status code": 0.5,
+    "Listar jogos: listagem": 1.5,
+    "Listar jogos: busca": 0.75,
+    "Inserir jogo: inserção": 1.5,
+    "Inserir jogo: status code": 0.5,
+    "Listar clientes: listagem": 1.5,
+    "Listar clientes: busca": 0.75,
+    "Obter cliente: obtenção": 0.5,
+    "Obter cliente: status code": 0.25,
+    "Inserir cliente: inserção": 3,
+    "Inserir cliente: status code": 0.5,
+    "Atualizar cliente: atualização": 0.75,
+    "Atualizar cliente: status code": 0.25,
+    "Listar aluguéis: listagem": 1.5,
+    "Listar aluguéis: busca": 0.75,
+    "Inserir aluguel: inserção": 3,
+    "Inserir aluguel: status code": 1,
+    "Finalizar aluguel: finalização": 3,
+    "Finalizar aluguel: status code": 0.5
+  }
+}

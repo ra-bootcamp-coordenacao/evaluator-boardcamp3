@@ -1,0 +1,43 @@
+version: '3'
+services:
+  db:
+    image: postgres:13-alpine
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: boardcamp
+    ports:
+      - 5432:5432
+    volumes:
+      - ./config/db:/docker-entrypoint-initdb.d # run script when start first time
+
+  challenge:
+    build:
+      context: ../ # due to limitations of docker-compose, we need to build from the parent directory
+      dockerfile: ./evaluator/config/challenge/Dockerfile # first folder is always named as evaluator on server
+    ports:
+      - '4000:4000'
+    restart: always # to prevent from fail if a request kill the server
+    environment:
+      - DATABASE_URL=postgres://postgres:postgres@db:5432/boardcamp
+      - PORT=4000
+    depends_on:
+      - db
+
+  evaluator:
+    build:
+      context: ../
+      dockerfile: ./evaluator/config/evaluator/Dockerfile
+    volumes:
+      - ./cypress/reports:/evaluator/cypress/reports
+      - ./output.json:/evaluator/output.json
+    depends_on:
+      - challenge
+      - db
+
+networks:
+  default:
+    external:
+      name: evaluator
+volumes:
+  evaluator_node_modules:
