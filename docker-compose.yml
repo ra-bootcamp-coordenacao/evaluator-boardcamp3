@@ -19,7 +19,7 @@ services:
       - '4000:4000'
     restart: always # to prevent from fail if a request kill the server
     environment:
-      - DATABASE_URL=postgres://postgres:postgres@db:5432/boardcamp
+      - DATABASE_URL=postgres://bootcamp_role:senha_super_hiper_ultra_secreta_do_role_do_bootcamp@db:5432/boardcamp?sslmode=disable
       - PORT=4000
     depends_on:
       - db
