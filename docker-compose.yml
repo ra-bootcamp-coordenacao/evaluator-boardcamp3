@@ -30,7 +30,7 @@ services:
       dockerfile: ./evaluator/config/evaluator/Dockerfile
     volumes:
       - ./cypress/reports:/evaluator/cypress/reports
-      - ./output.json:/evaluator/output.json
+      - ./output/output.json:/evaluator/output/output.json
     depends_on:
       - challenge
       - db
@@ -39,5 +39,3 @@ networks:
   default:
     external:
       name: evaluator
-volumes:
-  evaluator_node_modules:

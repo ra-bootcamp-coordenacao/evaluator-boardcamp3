@@ -7,7 +7,7 @@
     "prepare": "husky install",
     "db:create-tables": "",
     "cypress:open": "cypress open",
-    "merge": "mochawesome-merge cypress/reports/*.json > output.json",
+    "merge": "mochawesome-merge cypress/reports/*.json > output/output.json",
     "pretest": "rm -rf cypres/reports && npm run db:create-tables",
     "test": "cypress run --browser chrome",
     "report": "npm run test ; npm run merge"
